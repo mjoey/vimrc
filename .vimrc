@@ -123,8 +123,7 @@ nnoremap <F8> :FriendsTwitter<cr>
 "[
 Plugin 'mjoey/vim-magento'
 let g:vimMagentoAuthor = "Michael Joseph <contact@michael-joseph.me>"
-"let g:vimMagentoCopyright = "Copyright 2014 Michael Joseph http://michael-joseph.me"
-let g:vimMagentoCopyright = "Copyright 2014 Agence Soon http://agence-soon.fr"
+let g:vimMagentoCopyright = "Copyright 2015 Michael Joseph http://michael-joseph.me"
 let g:vimMagentoLicense = "No License"
 let g:vimMagentoSignature = 1
 "]
