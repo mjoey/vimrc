@@ -2,8 +2,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"map leader key
+let mapleader = ","
+
 "file with login
-execute 'source ~/.vim/login.vim'
+"execute 'source ~/.vim/login.vim'
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -81,6 +84,10 @@ Plugin 'docunext/closetag.vim'
 "]
 
 "[
+Plugin 'easymotion/vim-easymotion'
+"]
+"
+"[
 Plugin 'Xuyuanp/git-nerdtree'
 map <F2> <Esc>:NERDTreeToggle<CR>
 "show hide files
@@ -123,8 +130,7 @@ nnoremap <F8> :FriendsTwitter<cr>
 "[
 Plugin 'mjoey/vim-magento'
 let g:vimMagentoAuthor = "Michael Joseph <contact@michael-joseph.me>"
-"let g:vimMagentoCopyright = "Copyright 2014 Michael Joseph http://michael-joseph.me"
-let g:vimMagentoCopyright = "Copyright 2014 Agence Soon http://agence-soon.fr"
+let g:vimMagentoCopyright = "Copyright 2015 Michael Joseph http://michael-joseph.me"
 let g:vimMagentoLicense = "No License"
 let g:vimMagentoSignature = 1
 "]
@@ -152,7 +158,11 @@ let g:vimwiki_list = [{'path': '~/.vim/vimwiki'}]
 "]
 "
 "[
+Plugin 'SirVer/ultisnips'
+Plugin 'tobyS/vmustache'
 Plugin 'tobyS/pdv'
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+map <C-c> :call pdv#DocumentWithSnip()<CR>
 "]
 
 "[
@@ -206,8 +216,7 @@ set hlsearch
 map <C-A-Right> :tabnext<CR>
 map <C-A-Left> :tabprevious<CR>
 
-"map leader key
-let mapleader = ","
+
 
 "indent config
 set autoindent
