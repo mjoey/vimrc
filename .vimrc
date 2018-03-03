@@ -41,6 +41,14 @@ set laststatus=2
 "]
 
 "[
+Plugin 'jwalton512/vim-blade'
+"]
+
+"[
+Plugin 'posva/vim-vue'
+"]
+
+"[
 Plugin 'flazz/vim-colorschemes'
 "]
 
