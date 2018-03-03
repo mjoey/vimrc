@@ -96,7 +96,7 @@ Plugin 'easymotion/vim-easymotion'
 "]
 "
 "[
-Plugin 'Xuyuanp/git-nerdtree'
+Plugin 'scrooloose/nerdtree'
 map <F2> <Esc>:NERDTreeToggle<CR>
 "show hide files
 let NERDTreeShowHidden=1
@@ -104,6 +104,9 @@ let NERDTreeShowHidden=1
 autocmd vimenter * NERDTree | wincmd w
 "]
 
+"[
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+"]
 Plugin 'vim-scripts/vim-misc'
 Plugin 'vim-scripts/easytags.vim'
 "[
