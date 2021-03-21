@@ -41,6 +41,11 @@ set laststatus=2
 "]
 
 "[
+Plugin 'kevinhui/vim-docker-tools'
+"]
+
+
+"[
 Plugin 'jwalton512/vim-blade'
 "]
 
@@ -50,15 +55,6 @@ Plugin 'posva/vim-vue'
 
 "[
 Plugin 'flazz/vim-colorschemes'
-"]
-
-
-"[
-Plugin 'wincent/Command-T'
-map <F12> <Esc>:CommandT<CR>
-let g:CommandTMaxFiles=100000
-let g:CommandTFileScanner='find'
-let g:CommandTAlwaysShowDotFile=1
 "]
 
 "[
@@ -71,7 +67,7 @@ Plugin 'vim-scripts/PHP-correct-Indenting'
 "]
 
 "[
-Plugin 'vim-scripts/Align'
+"Plugin 'vim-scripts/Align'
 "]
 
 "[
@@ -84,15 +80,15 @@ Plugin 'mattn/gist-vim'
 "]
 
 "[
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 "]
 
 "[
-Plugin 'docunext/closetag.vim'
+"Plugin 'docunext/closetag.vim'
 "]
 
 "[
-Plugin 'easymotion/vim-easymotion'
+"Plugin 'easymotion/vim-easymotion'
 "]
 "
 "[
@@ -107,8 +103,7 @@ autocmd vimenter * NERDTree | wincmd w
 "[
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 "]
-Plugin 'vim-scripts/vim-misc'
-Plugin 'vim-scripts/easytags.vim'
+"Plugin 'vim-scripts/vim-misc'
 "[
 "VimRepress Fork
 Plugin 'danielmiessler/VimBlog'
@@ -116,11 +111,6 @@ Plugin 'danielmiessler/VimBlog'
 "                \'password':'',
 "                \'blog_url':''
 "                \}]
-"]
-
-"[
-"Plugin 'vim-scripts/AutoComplPop'
-Plugin 'Shougo/neocomplete'
 "]
 
 "[
@@ -136,14 +126,6 @@ Plugin 'vim-scripts/TwitVim'
 let twitvim_enable_python = 1
 "let twitvim_login = "user:password"
 nnoremap <F8> :FriendsTwitter<cr>
-"]
-
-"[
-Plugin 'mjoey/vim-magento'
-let g:vimMagentoAuthor = "Michael Joseph <contact@michael-joseph.me>"
-let g:vimMagentoCopyright = "Copyright 2015 Michael Joseph http://michael-joseph.me"
-let g:vimMagentoLicense = "No License"
-let g:vimMagentoSignature = 1
 "]
 
 "[
@@ -177,7 +159,11 @@ map <C-c> :call pdv#DocumentWithSnip()<CR>
 "]
 
 "[
-"Plugin 'joonty/vim-phpqa'
+"Plugin 'ncm2/ncm2'
+"]
+"[
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 "]
 "
 " The following are examples of different formats supported.
@@ -221,7 +207,13 @@ set wildmenu
 set nu
 colorscheme kolor
 set cursorline
-set tags=./tags,tags
+
+set tags=./tags,tags,.git/tags
+"Update tags
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
+"Open tag in a new window
+nnoremap <C-]> <C-w><C-]>
+
 set hlsearch
 "browse tabs
 map <C-A-Right> :tabnext<CR>
