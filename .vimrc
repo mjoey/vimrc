@@ -94,6 +94,7 @@ Plugin 'mattn/gist-vim'
 "[
 Plugin 'scrooloose/nerdtree'
 map <F2> <Esc>:NERDTreeToggle<CR>
+map <F4> <Esc>:NERDTreeFind<CR>
 "show hide files
 let NERDTreeShowHidden=1
 "open NERDTree and focus on main window on vim starts up 
@@ -151,7 +152,7 @@ let g:vimwiki_list = [{'path': '~/.vim/vimwiki'}]
 "]
 "
 "[
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 Plugin 'tobyS/vmustache'
 Plugin 'tobyS/pdv'
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
@@ -164,6 +165,12 @@ map <C-c> :call pdv#DocumentWithSnip()<CR>
 "[
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+map <C-f> <Esc><Esc>:Files!<CR>
+inoremap <C-f> <Esc><Esc>:BLines!<CR>
+map <C-g> <Esc><Esc>:BCommits!<CR>
+"]
+"[
+Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } 
 "]
 "
 " The following are examples of different formats supported.
@@ -207,7 +214,9 @@ set wildmenu
 set nu
 colorscheme kolor
 set cursorline
-
+set ignorecase
+"Vim will use the system clipboard
+set clipboard=unnamedplus
 set tags=./tags,tags,.git/tags
 "Update tags
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
@@ -240,9 +249,18 @@ map <F5> gg=G
 vmap <F5> =
 "autoresize window on focus
 autocmd WinEnter * wincmd _
+"assign current file path to clipboard (command and shortcut)
+command Path let @+ = expand("%")
+map <leader>p :Path<CR> :echo @+<CR>
+"find file in nerdtree
+map <leader>f :NERDTreeFind<CR>
 
 "display hide character
 set list
 set listchars=tab:▸\ ,eol:¬
+
+"open file in visualcode
+command! OpenInVSCode exe "silent !code '" . getcwd() . "' --goto '" . expand("%") . ":" . line(".") . ":" . col(".") . "'" | redraw!
+map <leader>c :OpenInVSCode<CR>
 
 "Vim Configuration [END] **********************************************************************
